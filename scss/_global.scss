@@ -1,0 +1,42 @@
+.hidden {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  @include text-typography;
+  font-family: $font-body;
+  margin: 0 auto;
+}
+
+%margin-padding {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  @extend %margin-padding;
+  font-family: $font-headers;
+  font-weight: normal;
+}
+
+p {
+  @extend %margin-padding;
+}
+
+a {
+  color: $green;
+}
+
+picture {
+  display: block;
+}
