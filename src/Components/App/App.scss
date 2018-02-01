@@ -1,0 +1,18 @@
+.container {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  max-width: $max-width;
+  padding: {
+    bottom: $padding-double;
+    left: $padding-container;
+    right: $padding-container;
+    top: $padding-double;
+  }
+}
+
+.header {
+  @include heading-typography('h1');
+  color: $app-green;
+}

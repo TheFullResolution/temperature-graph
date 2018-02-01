@@ -160,7 +160,9 @@ module.exports = {
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  importLoaders: 1
+                  importLoaders: 1,
+                  modules: true,
+                  localIdentName: '[name]_[local]-[hash:base64:3]'
                 }
               },
               {
@@ -174,11 +176,9 @@ module.exports = {
                     autoprefixer({
                       browsers: [
                         '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9' // React doesn't support IE8 anyway
-                      ],
-                      flexbox: 'no-2009'
+                        'last 2 versions',
+                        'not ie < 11' // React doesn't support IE8 anyway
+                      ]
                     })
                   ]
                 }
@@ -187,7 +187,7 @@ module.exports = {
                 loader: require.resolve('sass-loader'),
                 options: {
                   data: '@import "utils/base";',
-                  includePaths: [path.resolve(__dirname, '../scss')]
+                  includePaths: [path.resolve(__dirname, '../src/scss')]
                 }
               }
             ]

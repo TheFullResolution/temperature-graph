@@ -2,6 +2,7 @@
   overflow: hidden;
 }
 
+/* sass-lint:disable no-universal-selectors force-pseudo-nesting*/
 * {
   box-sizing: border-box;
 
@@ -9,22 +10,17 @@
   &::before {
     box-sizing: border-box;
   }
+
+  :focus:not(.focus-visible) {
+    outline-width: 0;
+  }
 }
+/* sass-lint:enable no-universal-selectors force-pseudo-nesting*/
 
 body {
   @include text-typography;
   font-family: $font-body;
   margin: 0 auto;
-}
-
-// sass-lint:disable class-name-format
-.LazyLoad {
-  opacity: 0.1;
-  transition: opacity 500ms ease-in-out;
-
-  &.is-visible {
-    opacity: 1;
-  }
 }
 
 %margin-padding {
@@ -44,7 +40,7 @@ p {
 }
 
 a {
-  color: $green;
+  color: $app-blue;
 }
 
 picture {
