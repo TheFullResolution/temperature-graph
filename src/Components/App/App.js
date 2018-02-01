@@ -1,10 +1,10 @@
-import * as style from './App.scss'
-
+import { bool, func, number, object } from 'prop-types'
 import React, { Component } from 'react'
+import { Error } from '../Error/Error'
+import { Loader } from '../Loader/Loader'
+import { Page } from '../Page/Page'
 import { connect } from 'react-redux'
 import { openWeatherActions } from '../../store/openWeather/openWeatherActions'
-import { Loader } from '../Loader/Loader'
-import { Error } from '../Error/Error'
 
 class AppClass extends Component {
   componentDidMount() {
@@ -14,15 +14,15 @@ class AppClass extends Component {
     const { error, loading, currentTemp } = this.props
     if (loading) return <Loader />
     else if (error) return <Error />
-    return (
-      <div className={style.container}>
-        <header>
-          <h1 className={style.header}>Temprature Graph App</h1>
-        </header>
-        <p>Berlin Temprature: {currentTemp}</p>
-      </div>
-    )
+    return <Page currentTemp={currentTemp} />
   }
+}
+
+AppClass.propTypes = {
+  currentTemp: number,
+  error: object,
+  fetchTemprature: func.isRequired,
+  loading: bool.isRequired
 }
 
 const mapStateToProps = state => ({
