@@ -1,0 +1,23 @@
+.container {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding: {
+    bottom: $padding-double;
+    left: $padding-container;
+    right: $padding-container;
+    top: $padding-double;
+  }
+  text-align: center;
+
+  h1 {
+    @include heading-typography('h1');
+    padding-bottom: $padding-double;
+  }
+
+  img {
+    max-width: 200px;
+    width: 100%;
+  }
+}
