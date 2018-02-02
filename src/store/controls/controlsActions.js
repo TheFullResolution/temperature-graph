@@ -1,6 +1,6 @@
 import { SET_TIMEOUT, SET_MAX, SET_MIN } from './controlsTypes'
 
-export const openWeatherActions = {
+export const controlsActions = {
   updateTimeout(value) {
     return dispatch => {
       dispatch({

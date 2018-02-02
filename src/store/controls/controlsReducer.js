@@ -2,7 +2,7 @@ import { SET_TIMEOUT, SET_MAX, SET_MIN } from './controlsTypes'
 import update from 'immutability-helper'
 
 const defaultState = {
-  timeout: 3000,
+  timeout: 30,
   max: 30,
   min: 10
 }
