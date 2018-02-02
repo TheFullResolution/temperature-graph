@@ -42,6 +42,11 @@ export const options = {
         scaleLabel: {
           display: true,
           labelString: 'Temperature'
+        },
+        ticks: {
+          callback: function(value, index, values) {
+            return `${value}${DEGREE_CELSIUS}`
+          }
         }
       }
     ],
