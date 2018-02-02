@@ -28,14 +28,12 @@ class Graph extends Component {
   }
 
   componentDidMount() {
-    if (this.props.temprature) {
-      this.updateState(this.props.temprature)
-    }
+    this.updateState(this.props.initTemprature)
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.temprature !== this.props.temprature) {
-      this.updateState(nextProps.temprature)
+    if (nextProps.newTemprature !== this.props.newTemprature) {
+      this.updateState(nextProps.newTemprature)
     }
   }
 
@@ -43,9 +41,12 @@ class Graph extends Component {
     return <Line data={this.state} options={options} />
   }
 }
-
+Graph.defaultProps = {
+  newTemprature: 0
+}
 Graph.propTypes = {
-  temprature: number
+  initTemprature: number,
+  newTemprature: number
 }
 
 export { Graph }

@@ -11,7 +11,7 @@ export const Page = ({ currentTemp }) => (
     </header>
     <p>Berlin Temprature: {currentTemp}</p>
     <div className={style.wrapper}>
-      <Graph temprature={currentTemp}/>
+      <Graph initTemprature={currentTemp}/>
     </div>
   </div>
 )
