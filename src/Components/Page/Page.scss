@@ -16,3 +16,13 @@
   @include heading-typography('h1');
   color: $app-green;
 }
+
+
+.wrapper {
+  padding: {
+    bottom: $padding-double;
+    left: $padding-single;
+    right: $padding-single;
+    top: $padding-double;
+  }
+}

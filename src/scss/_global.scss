@@ -19,8 +19,8 @@
 
 body {
   @include text-typography;
+  background-color: $app-white;
   font-family: $font-body;
-  margin: 0 auto;
 }
 
 %margin-padding {
