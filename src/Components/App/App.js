@@ -11,22 +11,20 @@ class AppClass extends Component {
     this.props.fetchTemprature()
   }
   render() {
-    const { error, loading, currentTemp } = this.props
+    const { error, loading } = this.props
     if (loading) return <Loader />
     else if (error) return <Error />
-    return <Page currentTemp={currentTemp} />
+    return <Page />
   }
 }
 
 AppClass.propTypes = {
-  currentTemp: number,
   error: object,
   fetchTemprature: func.isRequired,
   loading: bool.isRequired
 }
 
 const mapStateToProps = state => ({
-  currentTemp: state.openWeather.data,
   error: state.openWeather.error,
   loading: state.openWeather.loading
 })

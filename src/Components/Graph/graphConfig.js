@@ -45,7 +45,7 @@ export const options = {
         },
         ticks: {
           callback: function(value, index, values) {
-            return `${value}${DEGREE_CELSIUS}`
+            return `${Math.floor10(value, -1)}${DEGREE_CELSIUS}`
           }
         }
       }

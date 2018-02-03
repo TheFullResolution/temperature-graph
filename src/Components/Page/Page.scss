@@ -14,7 +14,7 @@
 
 .header {
   @include heading-typography('h1');
-  color: $app-green;
+  text-align: center;
 }
 
 

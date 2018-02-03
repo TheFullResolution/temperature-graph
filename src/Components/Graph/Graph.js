@@ -16,17 +16,6 @@ const getTime = () => {
 class Graph extends Component {
   state = initData
 
-  updateState = temprature => {
-    const time = getTime()
-
-    this.setState(() =>
-      update(this.state, {
-        datasets: { 0: { data: { $push: [temprature] } } },
-        labels: { $push: [time] }
-      })
-    )
-  }
-
   componentDidMount() {
     this.updateState(this.props.initTemprature)
   }
@@ -40,10 +29,23 @@ class Graph extends Component {
   render() {
     return <Line data={this.state} options={options} />
   }
+
+  updateState = temprature => {
+    const time = getTime()
+
+    this.setState(() =>
+      update(this.state, {
+        datasets: { 0: { data: { $push: [temprature] } } },
+        labels: { $push: [time] }
+      })
+    )
+  }
 }
+
 Graph.defaultProps = {
   newTemprature: 0
 }
+
 Graph.propTypes = {
   initTemprature: number,
   newTemprature: number

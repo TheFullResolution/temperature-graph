@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: {
+    bottom: $padding-single;
+    top: $padding-single;
+  }
+}

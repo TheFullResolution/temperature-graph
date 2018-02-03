@@ -2,7 +2,7 @@ import * as style from './Page.scss'
 
 import React from 'react'
 import { number } from 'prop-types'
-import {Graph} from '../Graph/Graph'
+import {GraphContainer} from '../GraphContainer/GraphContainer'
 import {Controls} from '../Controls/Controls'
 
 export const Page = ({ currentTemp }) => (
@@ -10,10 +10,10 @@ export const Page = ({ currentTemp }) => (
     <header>
       <h1 className={style.header}>Temperature Graph App</h1>
     </header>
-    <p>Berlin Temperature: {currentTemp}</p>
+
     <Controls />
     <div className={style.wrapper}>
-      <Graph initTemprature={currentTemp}/>
+      <GraphContainer />
     </div>
   </div>
 )
