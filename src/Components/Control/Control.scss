@@ -1,0 +1,63 @@
+.container {
+  border: 1px solid $app-gray;
+  border-radius: $border-radius;
+  margin: $padding-half;
+  padding: {
+    bottom: $padding-half;
+    left: $padding-single;
+    right: $padding-single;
+    top: $padding-half;
+  }
+}
+
+.wrapper {
+  margin: {
+    bottom: $padding-half;
+    left: -$padding-half;
+    right: -$padding-half;
+    top: $padding-half;
+  }
+}
+
+.button {
+  @include heading-typography('h2');
+  //sass-lint:disable  no-vendor-prefixes
+  -webkit-user-select: none;
+  border: none;
+  border-radius: $border-radius;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  margin: $padding-half;
+  padding: 0 $padding-double;
+}
+
+.plus {
+  background-color: $app-green;
+  border: {
+    bottom: 3px solid darken($app-green, 20%);
+    top: 3px solid transparent;
+  }
+
+  &.pressed {
+    background-color: lighten($app-green, 10%);
+    border: {
+      bottom-color: transparent;
+    }
+  }
+}
+
+.minus {
+  background-color: $app-red;
+  border: {
+    bottom: 3px solid darken($app-red, 20%);
+    top: 3px solid transparent;
+  }
+
+  &.pressed {
+    background-color: lighten($app-red, 10%);
+    border: {
+      bottom-color: transparent;
+    }
+  }
+}

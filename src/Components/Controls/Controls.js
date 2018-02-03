@@ -1,43 +1,21 @@
 import * as style from './Controls.scss'
 
 import React from 'react'
-import { func, number, string } from 'prop-types'
+import { func, number } from 'prop-types'
 import { connect } from 'react-redux'
 import { controlsActions } from '../../store/controls/controlsActions'
+import {Control} from '../Control/Control'
 
-const Control = ({ value, update, label }) => {
-  const onChange = ev => update(Number(ev.target.value))
-  const add = () => update(value + 1)
-  const substruct = () => update(value - 1)
-  return (
-    <div>
-      <label htmlFor={label}>{label}</label>
-      <input
-        id={label}
-        type="number"
-        onChange={onChange}
-        step={1}
-        value={value}
-      />
-      <div>
-        <button onClick={add}>+</button>
-        <button onClick={substruct}>-</button>
-      </div>
-    </div>
-  )
-}
+// const validateTimeout
 
-Control.propTypes = {
-  label: string.isRequired,
-  update: func.isRequired,
-  value: number.isRequired
-}
+const ControlsComponent = props => {
 
-const ControlsComponent = props => (
-  <div>
+return (
+  <div className={style.container}>
     <Control
       label="Timeout"
       update={props.updateTimeout}
+      min={1}
       value={props.timeout}
     />
     <Control
@@ -51,7 +29,7 @@ const ControlsComponent = props => (
       value={props.min}
     />
   </div>
-)
+)}
 
 ControlsComponent.propTypes = {
   updateTimeout: func.isRequired,
