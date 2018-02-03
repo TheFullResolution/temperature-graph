@@ -4,32 +4,35 @@ import React from 'react'
 import { func, number } from 'prop-types'
 import { connect } from 'react-redux'
 import { controlsActions } from '../../store/controls/controlsActions'
-import {Control} from '../Control/Control'
+import { Control } from '../Control/Control'
 
-// const validateTimeout
+const DEGREE_CELSIUS = String.fromCharCode(8451)
 
 const ControlsComponent = props => {
-
-return (
-  <div className={style.container}>
-    <Control
-      label="Timeout"
-      update={props.updateTimeout}
-      min={1}
-      value={props.timeout}
-    />
-    <Control
-      label="Max Temperature"
-      update={props.updateMax}
-      value={props.max}
-    />
-    <Control
-      label="Min Temperature"
-      update={props.updateMin}
-      value={props.min}
-    />
-  </div>
-)}
+  return (
+    <div className={style.container}>
+      <Control
+        label="Timeout"
+        min={1}
+        unit={'s'}
+        update={props.updateTimeout}
+        value={props.timeout}
+      />
+      <Control
+        label="Max. Temperature"
+        unit={DEGREE_CELSIUS}
+        update={props.updateMax}
+        value={props.max}
+      />
+      <Control
+        label="Min. Temperature"
+        unit={DEGREE_CELSIUS}
+        update={props.updateMin}
+        value={props.min}
+      />
+    </div>
+  )
+}
 
 ControlsComponent.propTypes = {
   updateTimeout: func.isRequired,

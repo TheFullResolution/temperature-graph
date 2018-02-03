@@ -10,13 +10,12 @@ export class Control extends Component {
   start = 1000
 
   render() {
-    const { label, value, message } = this.props
+    const { label, value, unit } = this.props
     return (
       <div className={style.container}>
         <p>
-          {label}: {value}
+          {label}: {value}{unit}
         </p>
-        <div>{message && <p>{message}</p>}</div>
         <div className={style.wrapper}>
           <button
             aria-label={`add 1 to ${label}`}
@@ -99,7 +98,7 @@ export class Control extends Component {
 }
 Control.propTypes = {
   label: string.isRequired,
-  message: string,
+  unit: string.isRequired,
   update: func.isRequired,
   value: number.isRequired,
   min: number
