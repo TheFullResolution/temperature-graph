@@ -1,38 +1,45 @@
 import * as style from './ControlsContainer.scss'
 
 import React from 'react'
-import { func, number } from 'prop-types'
+import { Controls } from './Controls/Controls'
 import { connect } from 'react-redux'
 import { controlsActions } from '../../store/controls/controlsActions'
-import { Controls } from './Controls/Controls'
+import { func, number } from 'prop-types'
 
 const DEGREE_CELSIUS = String.fromCharCode(8451)
 
-const ControlsComponent = props => {
+const ControlsComponent = ({
+  max,
+  min,
+  timeout,
+  updateMax,
+  updateMin,
+  updateTimeout,
+}) => {
   return (
     <div className={style.container}>
       <Controls
         label="Timeout"
         min={1}
         unit={'s'}
-        update={props.updateTimeout}
-        value={props.timeout}
+        update={updateTimeout}
+        value={timeout}
         warningMessage="Value cannot be lower than 1"
       />
       <Controls
         label="Max. Temperature"
-        min={props.min + 1}
+        min={min + 1}
         unit={DEGREE_CELSIUS}
-        update={props.updateMax}
-        value={props.max}
+        update={updateMax}
+        value={max}
         warningMessage="Value cannot be lower than min. temperature"
       />
       <Controls
         label="Min. Temperature"
-        max={props.max - 1}
+        max={max - 1}
         unit={DEGREE_CELSIUS}
-        update={props.updateMin}
-        value={props.min}
+        update={updateMin}
+        value={min}
         warningMessage="Value cannot be higher than max. temperature"
       />
     </div>
@@ -40,18 +47,18 @@ const ControlsComponent = props => {
 }
 
 ControlsComponent.propTypes = {
-  updateTimeout: func.isRequired,
+  max: number.isRequired,
+  min: number.isRequired,
   timeout: number.isRequired,
   updateMax: func.isRequired,
-  max: number.isRequired,
   updateMin: func.isRequired,
-  min: number.isRequired
+  updateTimeout: func.isRequired,
 }
 
 const mapStateToProps = state => ({
-  timeout: state.controls.timeout,
   max: state.controls.max,
-  min: state.controls.min
+  min: state.controls.min,
+  timeout: state.controls.timeout,
 })
 
 const mapDispatchToProps = dispatch => {

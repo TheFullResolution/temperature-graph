@@ -9,7 +9,7 @@ export const Page = ({ currentTemp }) => (
   <div className={style.container}>
     <header className={style.header}>
       <h1>Temperature Monitoring and Control</h1>
-      <p>Long press on the buttons to adjust values faster!</p>
+      <p>Long press the buttons to adjust values faster!</p>
     </header>
 
     <ControlsContainer />

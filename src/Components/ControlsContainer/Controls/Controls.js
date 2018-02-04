@@ -25,9 +25,9 @@ export class Controls extends Component {
               style.pressed}`}
             onKeyDown={this.onKeyDownAdd}
             onMouseDown={this.startRepeatAdd}
-            onMouseOut={this.stopReapeat}
-            onMouseUp={this.stopReapeat}
-            onTouchEnd={this.stopReapeat}
+            onMouseOut={this.stopRepeat}
+            onMouseUp={this.stopRepeat}
+            onTouchEnd={this.stopRepeat}
             onTouchStart={this.startRepeatAdd}>
             +
           </button>
@@ -37,9 +37,9 @@ export class Controls extends Component {
               .pressedSubstruct && style.pressed}`}
             onKeyDown={this.onKeyDownSubstruct}
             onMouseDown={this.startRepeatSubstruct}
-            onMouseOut={this.stopReapeat}
-            onMouseUp={this.stopReapeat}
-            onTouchEnd={this.stopReapeat}
+            onMouseOut={this.stopRepeat}
+            onMouseUp={this.stopRepeat}
+            onTouchEnd={this.stopRepeat}
             onTouchStart={this.startRepeatSubstruct}>
             {MINUS}
           </button>
@@ -74,7 +74,7 @@ export class Controls extends Component {
     if (this.start > 100) this.start = this.start / 2
   }
 
-  stopReapeat = () => {
+  stopRepeat = () => {
     this.setState(() => ({
       pressedAdd: false,
       pressedSubstruct: false
