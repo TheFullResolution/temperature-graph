@@ -1,7 +1,7 @@
 import * as style from './GraphContainer.scss'
 
 import React, { Component, Fragment } from 'react'
-import { Graph } from '../Graph/Graph'
+import { Graph } from './Graph/Graph'
 import { connect } from 'react-redux'
 import { number } from 'prop-types'
 

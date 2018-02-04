@@ -1,10 +1,11 @@
-import * as style from './Control.scss'
+import * as style from './Controls.scss'
 
 import React, { Component } from 'react'
 import { func, number, string } from 'prop-types'
 
 const MINUS = String.fromCharCode(8722)
-export class Control extends Component {
+
+export class Controls extends Component {
   state = { pressedAdd: false, pressedSubstruct: false, showWarning: false }
   timeout = null
   start = 1000
@@ -100,11 +101,13 @@ export class Control extends Component {
   onKeyDownAdd = ev => {
     if (ev.keyCode === 32) this.add()
   }
+
   onKeyDownSubstruct = ev => {
     if (ev.keyCode === 32) this.substruct()
   }
 }
-Control.propTypes = {
+
+Controls.propTypes = {
   label: string.isRequired,
   max: number,
   min: number,

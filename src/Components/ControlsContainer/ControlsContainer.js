@@ -1,17 +1,17 @@
-import * as style from './Controls.scss'
+import * as style from './ControlsContainer.scss'
 
 import React from 'react'
 import { func, number } from 'prop-types'
 import { connect } from 'react-redux'
 import { controlsActions } from '../../store/controls/controlsActions'
-import { Control } from '../Control/Control'
+import { Controls } from './Controls/Controls'
 
 const DEGREE_CELSIUS = String.fromCharCode(8451)
 
 const ControlsComponent = props => {
   return (
     <div className={style.container}>
-      <Control
+      <Controls
         label="Timeout"
         min={1}
         unit={'s'}
@@ -19,7 +19,7 @@ const ControlsComponent = props => {
         value={props.timeout}
         warningMessage="Value cannot be lower than 1"
       />
-      <Control
+      <Controls
         label="Max. Temperature"
         min={props.min + 1}
         unit={DEGREE_CELSIUS}
@@ -27,7 +27,7 @@ const ControlsComponent = props => {
         value={props.max}
         warningMessage="Value cannot be lower than min. temperature"
       />
-      <Control
+      <Controls
         label="Min. Temperature"
         max={props.max - 1}
         unit={DEGREE_CELSIUS}
@@ -67,6 +67,7 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
-export const Controls = connect(mapStateToProps, mapDispatchToProps)(
+
+export const ControlsContainer = connect(mapStateToProps, mapDispatchToProps)(
   ControlsComponent
 )
