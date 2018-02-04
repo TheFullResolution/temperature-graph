@@ -1,4 +1,4 @@
-import { bool, func, number, object } from 'prop-types'
+import { bool, func, object } from 'prop-types'
 import React, { Component } from 'react'
 import { Error } from '../Error/Error'
 import { Loader } from '../Loader/Loader'

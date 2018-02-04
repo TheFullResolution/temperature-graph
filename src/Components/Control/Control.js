@@ -5,16 +5,17 @@ import { func, number, string } from 'prop-types'
 
 const MINUS = String.fromCharCode(8722)
 export class Control extends Component {
-  state = { pressedAdd: false, pressedSubstruct: false }
+  state = { pressedAdd: false, pressedSubstruct: false, showWarning: false }
   timeout = null
   start = 1000
 
   render() {
-    const { label, value, unit } = this.props
+    const { label, value, unit, warningMessage } = this.props
     return (
       <div className={style.container}>
         <p>
-          {label}: {value}{unit}
+          {label}: {value}
+          {unit}
         </p>
         <div className={style.wrapper}>
           <button
@@ -41,20 +42,27 @@ export class Control extends Component {
             onTouchStart={this.startRepeatSubstruct}>
             {MINUS}
           </button>
+          {this.state.showWarning &&
+            warningMessage && <p className={style.warning}>{warningMessage}</p>}
         </div>
       </div>
     )
   }
 
   add = () => {
-    const { update, value } = this.props
-    update(value + 1)
+    const { max, update, value } = this.props
+    if (max === undefined || (max !== undefined && value + 1 <= max)) {
+      update(value + 1)
+      if (this.state.showWarning) this.setState(() => ({ showWarning: false }))
+    } else this.setState(() => ({ showWarning: true }))
   }
 
   substruct = () => {
     const { min, update, value } = this.props
-    if (min === undefined || (min !== undefined && value - 1 >= min))
+    if (min === undefined || (min !== undefined && value - 1 >= min)) {
       update(value - 1)
+      if (this.state.showWarning) this.setState(() => ({ showWarning: false }))
+    } else this.setState(() => ({ showWarning: true }))
   }
 
   repeat(operation) {
@@ -70,7 +78,7 @@ export class Control extends Component {
       pressedAdd: false,
       pressedSubstruct: false
     }))
-
+    this.start = 1000
     clearTimeout(this.timeout)
   }
 
@@ -98,8 +106,10 @@ export class Control extends Component {
 }
 Control.propTypes = {
   label: string.isRequired,
+  max: number,
+  min: number,
   unit: string.isRequired,
   update: func.isRequired,
   value: number.isRequired,
-  min: number
+  warningMessage: string
 }

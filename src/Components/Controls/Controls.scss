@@ -1,4 +1,5 @@
 .container {
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -6,4 +7,5 @@
     bottom: $padding-single;
     top: $padding-single;
   }
+  min-height: 190px;
 }

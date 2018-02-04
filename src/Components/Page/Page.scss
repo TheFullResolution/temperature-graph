@@ -5,15 +5,18 @@
   }
   max-width: $max-width;
   padding: {
-    bottom: $padding-double;
+    bottom: $padding-single;
     left: $padding-container;
     right: $padding-container;
-    top: $padding-double;
+    top: $padding-single;
   }
 }
 
 .header {
   @include heading-typography('h1');
+  margin: {
+    bottom: $padding-double;
+  }
   text-align: center;
 }
 

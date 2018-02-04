@@ -8,13 +8,12 @@
     right: $padding-single;
     top: $padding-half;
   }
+  text-align: center;
 }
 
 .wrapper {
   margin: {
     bottom: $padding-half;
-    left: -$padding-half;
-    right: -$padding-half;
     top: $padding-half;
   }
 }
@@ -35,10 +34,11 @@
 .plus {
   background-color: $app-green;
   border: {
-    bottom: 3px solid darken($app-green, 20%);
+    bottom: 3px solid darken($app-green, 10%);
     top: 3px solid transparent;
   }
 
+  &:active,
   &.pressed {
     background-color: lighten($app-green, 10%);
     border: {
@@ -50,14 +50,25 @@
 .minus {
   background-color: $app-red;
   border: {
-    bottom: 3px solid darken($app-red, 20%);
+    bottom: 3px solid darken($app-red, 15%);
     top: 3px solid transparent;
   }
 
+  &:active,
   &.pressed {
     background-color: lighten($app-red, 10%);
     border: {
       bottom-color: transparent;
     }
   }
+}
+
+.warning {
+  @include text-typography($text-size-small);
+  color: $app-red;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  max-width: 190px;
 }

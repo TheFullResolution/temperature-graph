@@ -1,3 +1,5 @@
+import * as style from './GraphContainer.scss'
+
 import React, { Component, Fragment } from 'react'
 import { Graph } from '../Graph/Graph'
 import { connect } from 'react-redux'
@@ -23,18 +25,18 @@ class GraphContainerClass extends Component {
   }
   render() {
     const { currentTemp } = this.props
+    const {newTemprature, timeout} = this.state
     return (
       <Fragment>
-        New Temperature in {this.state.timeout}s
+        <p className={style.paragraph}>New Temperature in {timeout}s</p>
         <Graph
           initTemprature={currentTemp}
-          newTemprature={this.state.newTemprature}
+          newTemprature={newTemprature}
         />
       </Fragment>
     )
   }
   startTheInterval = () => {
-
     this.interval = setInterval(() => {
       const { max, min } = this.props
       this.setState(

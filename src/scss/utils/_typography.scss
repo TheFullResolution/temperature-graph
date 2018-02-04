@@ -23,9 +23,9 @@ $text-size-small: (425px: 14px, 850px: 16px);
 }
 
 @mixin text-typography(
+  $size-table: $text-size,
   $color: $app-black,
-  $font-family: $font-body,
-  $size-table: $text-size
+  $font-family: $font-body
 ) {
   @include fluid-sizing('font-size', $size-table);
   color: $color;
