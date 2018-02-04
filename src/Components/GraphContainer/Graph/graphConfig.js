@@ -24,16 +24,12 @@ export const options = {
   },
   tooltips: {
     callbacks: {
-      title: function() {
-        return undefined
-      },
-      label: function(tooltipItem) {
+      title: () => undefined,
+      label: tooltipItem => {
         const { xLabel, yLabel } = tooltipItem
         return `${xLabel}: ${yLabel}${DEGREE_CELSIUS}`
       },
-      labelTextColor: function(tooltipItem, chart) {
-        return 'rgb(255, 254, 254)'
-      }
+      labelTextColor: (tooltipItem, chart) => 'rgb(255, 254, 254)'
     }
   },
   scales: {
@@ -44,9 +40,8 @@ export const options = {
           labelString: 'Temperature'
         },
         ticks: {
-          callback: function(value, index, values) {
-            return `${Math.floor10(value, -1)}${DEGREE_CELSIUS}`
-          }
+          callback: (value, index, values) =>
+            `${Math.floor10(value, -1)}${DEGREE_CELSIUS}`
         }
       }
     ],

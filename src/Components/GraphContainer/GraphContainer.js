@@ -5,37 +5,38 @@ import { Graph } from './Graph/Graph'
 import { connect } from 'react-redux'
 import { number } from 'prop-types'
 
-export const getRandomTemperature = (max, min) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
+export const getRandomTemperature = (max, min) =>
+  Math.floor(Math.random() * (max - min + 1)) + min
 
 class GraphContainerClass extends Component {
   state = { timeout: this.props.timeout, newTemprature: 0 }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.timeout !== this.props.timeout)
       this.setState(() => ({
         timeout: nextProps.timeout
       }))
   }
+
   componentDidMount() {
     this.startTheInterval()
   }
+
   componentWillUnmount() {
     clearInterval(this.interval)
   }
+
   render() {
     const { currentTemp } = this.props
-    const {newTemprature, timeout} = this.state
+    const { newTemprature, timeout } = this.state
     return (
       <Fragment>
         <p className={style.paragraph}>New Temperature in {timeout}s</p>
-        <Graph
-          initTemprature={currentTemp}
-          newTemprature={newTemprature}
-        />
+        <Graph initTemprature={currentTemp} newTemprature={newTemprature} />
       </Fragment>
     )
   }
+
   startTheInterval = () => {
     this.interval = setInterval(() => {
       const { max, min } = this.props

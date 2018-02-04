@@ -8,6 +8,7 @@ const formatTime = time => time.toString().padStart(2, '0')
 
 const getTime = () => {
   const now = new Date()
+
   return `${formatTime(now.getHours())}:${formatTime(
     now.getMinutes()
   )}:${formatTime(now.getSeconds())} `

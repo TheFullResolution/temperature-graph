@@ -13,13 +13,15 @@
 }
 
 .header {
-  @include heading-typography('h1');
-  margin: {
-    bottom: $padding-double;
-  }
   text-align: center;
-}
 
+  h1 {
+    @include heading-typography('h1');
+    margin: {
+      bottom: $padding-double;
+    }
+  }
+}
 
 .wrapper {
   padding: {
