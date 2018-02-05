@@ -13,7 +13,7 @@ export class Controls extends Component {
   render() {
     const { label, value, unit, warningMessage } = this.props
     return (
-      <div className={style.container}>
+      <div className={style.container} data-test="controller">
         <p>
           {label}: {value}
           {unit}

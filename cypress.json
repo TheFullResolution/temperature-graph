@@ -1,0 +1,5 @@
+{
+  "reporter": "nyan",
+  "baseUrl": "http://localhost:3000",
+  "ignoreTestFiles": "!*spec.js"
+}

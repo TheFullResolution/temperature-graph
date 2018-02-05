@@ -31,7 +31,7 @@ class GraphContainerClass extends Component {
     const { newTemprature, timeout } = this.state
     return (
       <Fragment>
-        <p className={style.paragraph}>New Temperature in {timeout}s</p>
+        <p className={style.paragraph} data-test="timer">New Temperature in {timeout}s</p>
         <Graph initTemprature={currentTemp} newTemprature={newTemprature} />
       </Fragment>
     )
