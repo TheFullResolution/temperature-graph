@@ -12,8 +12,9 @@ export const VAR_NAMES = {
 }
 
 export const SELECTORS = {
+  controller: dataTest('controller'),
   graphWrapper: dataTest('graph-wrapper'),
   header: dataTest('header'),
   loader: dataTest('loader'),
-  controller: dataTest('controller')
+  timer: dataTest('timer')
 }
