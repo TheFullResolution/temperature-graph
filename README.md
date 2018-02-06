@@ -41,6 +41,10 @@
   - `scss/` folder contains the global styling, mixins, and variables.
   - `store/` folder contains the redux store files.
 
+## Tests
+Add the moment there is few end to end tests using [Cypress](https://www.cypress.io/) framework. To run tests first run `yarn start` and the other console window you can either run `yarn test` or `yarn cypress:open` and then use GUI to run tests.
+
+All tests are located in folder `cypress/`.
+
 ## Additional Notes
-- No tests have been included in the project, due to the time constraints.
 - The requirement: "*The graph always displays the values from the last 30 minutes*" hasn't been fully implemented since Chart.js will automatically minimize the number of visible labels once data gets bigger. Nevertheless, if the project was dealing with big data sets I would add filter function in Graph component to remove entries older than 30 minutes.
