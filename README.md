@@ -2,7 +2,7 @@
 
 ## General Usage Notes
 - To run the project locally, clone the repo, run yarn install and then yarn start
-- You can see production version hosted under following address: https://www.thefullresolution.com/temperature/
+
 
 ## Project Description
 
